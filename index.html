@@ -29,23 +29,23 @@
                 <form action="" id="formPresupuesto">
                     <div class="ctn-destino">
                         <p>Destino</p>
-                        <input type="text" name="destino" id="destino" placeholder="Nombre del Destino">
+                        <input type="text" name="destino" id="destino" placeholder="Ej:&quot; Cancún - Mexico &quot;">
                     </div>
                     <div class="ctn-cashtotal">
                         <p>Presupuesto Total</p>
-                        <input type="number" name="presupuestoTotal" id="cashTotal" placeholder="Presupuesto Total">
+                        <input type="number" name="presupuestoTotal" id="cashTotal" placeholder="Ej: [$500]">
                     </div>
                     <div class="ctn-vuelo">
                         <p>Gasto Transporte</p>
-                        <input type="number" name="ransporte" id="cashTransport" placeholder="Gasto de Transporte">
+                        <input type="number" name="ransporte" id="cashTransport" placeholder="Ej: [$300] ">
                     </div>
                     <div class="ctn-alojamiento">
                         <p>Gasto Alojamiento</p>
-                        <input type="number" name="alojamiento" id="cashAcomodation" placeholder="Gasto de Alojamiento">
+                        <input type="number" name="alojamiento" id="cashAcomodation" placeholder="Ej: [$100] ">
                     </div>
                     <div class="ctn-comida">
                         <p>Gasto Comida</p>
-                        <input type="number" name="comida" id="cashEat" placeholder="Gasto de Comida">
+                        <input type="number" name="comida" id="cashEat" placeholder="Ej: [$80] ">
                     </div>
                     <div class="ctn-submit">
                         <button type="submit">Confirmar</button>
@@ -56,17 +56,20 @@
                 <p>Ultimo Presupuesto</p>
             </div>
             <div class="ctn-resultado">
-                <div class="ctn-gastado">
-                    <i class="fas fa-plane-departure icon"></i>
-                    <span id="spent"></span>
-                </div>
-                <div class="ctn-sobrante">
-                    <i class="fas fa-wallet icon"></i>
-                    <span id="surplus"></span>
-                </div>
-                <div class="ctn-total">
+                <div class="ctn-total boxFlex">
+                    <p>Total</p>
                     <i class="far fa-money-bill-alt icon"></i>
-                    <span id="totalBudget"></span>
+                    <span id="totalBudget">0</span>
+                </div>
+                <div class="ctn-gastado boxFlex">
+                    <p>Gastado</p>
+                    <i class="fas fa-plane-departure icon"></i>
+                    <span id="spent">0</span>
+                </div>
+                <div class="ctn-sobrante boxFlex">
+                    <p>En Billetera</p>
+                    <i class="fas fa-wallet icon"></i>
+                    <span id="surplus">0</span>
                 </div>
             </div>
         </div>

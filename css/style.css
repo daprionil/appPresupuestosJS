@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 html {
   font-family: 'Montserrat',sans-serif;
 }
@@ -263,49 +264,39 @@ html {
   margin: 10px 0;
 }
 
-* body .container .ctn-budget .ctn-resultado .ctn-gastado {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+* body .container .ctn-budget .ctn-resultado .boxFlex {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "title title";
+  justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0 10px;
-  background: red;
-  padding: 10px;
-  border-radius: 10px;
+  gap: 5px;
+  padding: 7px;
+  border-radius: 7px;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+}
+
+* body .container .ctn-budget .ctn-resultado .boxFlex p {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: title;
+}
+
+* body .container .ctn-budget .ctn-resultado .ctn-gastado {
+  background: red;
 }
 
 * body .container .ctn-budget .ctn-resultado .ctn-sobrante {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0 10px;
   background: #ffc400;
-  padding: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 
 * body .container .ctn-budget .ctn-resultado .ctn-total {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0 10px;
   background: #24e602;
-  padding: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 
 * body .container .ctn-budget .ctn-resultado .icon {
@@ -314,6 +305,7 @@ html {
 }
 
 * body .message {
+  z-index: 1;
   position: absolute;
   top: 1vh;
   width: 70vw;

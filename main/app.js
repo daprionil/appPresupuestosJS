@@ -154,6 +154,7 @@ function deleteSpend(id){
     boxGastos = boxGastos.filter( spend => spend.id !== id );
     setBoxGastos(boxGastos);
     ui.viewSpendHtml();
+    ui.message("Gasto Eliminado Correctamente","correcto");
 };
 function openCloseWindowSpending(e){
     e.preventDefault();

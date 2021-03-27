@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 //Variables
 $colorSegundario:#EFEFEF;
 $colorCuaternario:#cccccc;
@@ -194,32 +195,28 @@ html{
                     justify-items: center;
                     align-items: center;
                     margin: 10px 0;
-                    .ctn-gastado{
-                        display: flex;
+                    .boxFlex{
+                        width: 90%;
+                        display: grid;
+                        grid-template-areas: "title title";
+                        justify-items: center;
                         align-items: center;
-                        gap: 0 10px;
-                        background: red;
-                        padding: 10px;
-                        border-radius: 10px;
+                        gap:5px;
+                        padding: 7px;
+                        border-radius: 7px;
                         @include sombraBox();
+                        p{
+                            grid-area: title;
+                        }
+                    }
+                    .ctn-gastado{
+                        background: red;
                     }
                     .ctn-sobrante{
-                        display: flex;
-                        align-items: center;
-                        gap: 0 10px;
                         background: rgb(255, 196, 0);
-                        padding: 10px;
-                        border-radius: 10px;
-                        @include sombraBox();
                     }
-                    .ctn-total{
-                        display: flex;
-                        align-items: center;
-                        gap: 0 10px;                        
+                    .ctn-total{                     
                         background: rgb(36, 230, 2);
-                        padding: 10px;
-                        border-radius: 10px;
-                        @include sombraBox();
                     }
                     .icon{
                         font-size: 200%;
@@ -229,6 +226,7 @@ html{
             }
         }
         .message{
+            z-index: 1;
             position: absolute;
             top: 1vh;
             width: 70vw;
