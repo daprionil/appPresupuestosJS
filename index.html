@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendTraveling - Daprion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <aside class="windowAside active" id="windowSpending">
+        <div class="title-gastos">
+            <h2>Mis Gastos</h2>
+        </div>
+        <div class="gastos" id="gastosTotales"></div>
+        <div class="ctn-btn-close-window">
+            <button id="btnClose"><i class="fas fa-bars icon"></i></button>
+        </div>
+    </aside>
+    <div class="container">
+        <div class="ctn-budget">
+            <div class="ctn-title-budget">
+                <p>Calcula Tu Presupuesto ($USD)</p>
+            </div>
+            <div class="ctn-form-presupuesto">
+                <form action="" id="formPresupuesto">
+                    <div class="ctn-destino">
+                        <p>Destino</p>
+                        <input type="text" name="destino" id="destino" placeholder="Nombre del Destino">
+                    </div>
+                    <div class="ctn-cashtotal">
+                        <p>Presupuesto Total</p>
+                        <input type="number" name="presupuestoTotal" id="cashTotal" placeholder="Presupuesto Total">
+                    </div>
+                    <div class="ctn-vuelo">
+                        <p>Gasto Transporte</p>
+                        <input type="number" name="ransporte" id="cashTransport" placeholder="Gasto de Transporte">
+                    </div>
+                    <div class="ctn-alojamiento">
+                        <p>Gasto Alojamiento</p>
+                        <input type="number" name="alojamiento" id="cashAcomodation" placeholder="Gasto de Alojamiento">
+                    </div>
+                    <div class="ctn-comida">
+                        <p>Gasto Comida</p>
+                        <input type="number" name="comida" id="cashEat" placeholder="Gasto de Comida">
+                    </div>
+                    <div class="ctn-submit">
+                        <button type="submit">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="ctn-title-resultado">
+                <p>Ultimo Presupuesto</p>
+            </div>
+            <div class="ctn-resultado">
+                <div class="ctn-gastado">
+                    <i class="fas fa-plane-departure icon"></i>
+                    <span id="spent"></span>
+                </div>
+                <div class="ctn-sobrante">
+                    <i class="fas fa-wallet icon"></i>
+                    <span id="surplus"></span>
+                </div>
+                <div class="ctn-total">
+                    <i class="far fa-money-bill-alt icon"></i>
+                    <span id="totalBudget"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-a11y="true"></script>
+    <script src="main/app.js"></script>
+</body>
+
+</html>

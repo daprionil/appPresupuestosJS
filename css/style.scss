@@ -1,0 +1,304 @@
+//Variables
+$colorSegundario:#EFEFEF;
+$colorCuaternario:#cccccc;
+$colorAzulClaro:#008cff;
+$colorAzulOscuro:#0079dd;
+//Mixins
+@mixin sombraBox{
+    box-shadow:  0 0 4px rgba(0, 0, 0, 0.24);
+}
+@mixin btnButton($colorBg){
+    outline: none;
+    border: none;
+    padding: 11px;
+    cursor: pointer;
+    background: $colorBg;
+    border-radius: 5px;
+    font-family: 'Montserrat',sans-serif;
+}
+//Global Class
+html{
+    font-family: 'Montserrat',sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    body{
+        background: $colorSegundario;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        aside{
+            position: fixed;
+            width: 20vw;
+            top: 0;
+            left: 0;
+            background: $colorCuaternario;
+            height: 100%;
+            gap: 20px 0;
+            transition: all .3s;
+            @include sombraBox();
+            .title-gastos{
+                padding: 15px;
+                text-align: center;
+                background: #e6e6e6;
+            }
+            .gastos{
+                padding: 15px;
+                .ctn-gasto{
+                    margin: 5px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    background: $colorSegundario;
+                    .ctn-title-spending{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 5px;
+                        p{
+                            font-weight: bolder;
+                            &:nth-child(2){
+                                background: red;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    .ctn-description-spending{
+                        padding: 5px;
+                        background: $colorCuaternario;
+                        .head-spending{
+                            border-radius: 5px;
+                            background: $colorAzulClaro;
+                            display: grid;
+                            grid-template-columns:50% 50%;
+                            padding: 5px;
+                            gap: 0 5px;
+                            p{
+                                display: flex;
+                                flex-direction: column;
+
+                                span{
+                                    padding: 5px;
+                                    background: $colorSegundario;
+                                    border-radius: 5px;
+                                    margin-right:5px;
+                                    font-weight: bolder;
+                                }
+                            }
+                        }
+                        .description-spending{
+                            padding: 5px;
+                            p{
+                                padding: 2px 0;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+                            }
+                        }
+                        .result-spending{
+                            padding: 5px 0;
+                            background: $colorSegundario;
+                            border-radius: 5px;
+                            p{
+                                padding:2px 5px;
+                                span{
+                                    border-radius: 5px;
+                                    background: $colorAzulClaro;
+                                    padding:2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .ctn-btn-close-window{
+                position: absolute;
+                top: 1vh;
+                left: 20.5vw;
+                
+                button{
+                    @include btnButton($colorAzulClaro);
+                    transition: all .3s;
+                    &:hover{
+                        background: $colorAzulOscuro;
+                    }
+                    .icon{
+                        color: white;
+                        font-size: 150%;
+                    }
+                }
+            }
+        }
+        aside.active{
+            left: -20vw;
+        }
+        //CONTAINER FORMULARIO PARA LA APP DE PRESUPUESTOS
+        .container{
+            margin: 5px;
+            width: 100%;
+            max-width: 500px;
+            .ctn-budget{
+                width: 100%;
+                border-radius: 5px;
+                background: $colorAzulClaro;
+                overflow: hidden;
+                .ctn-title-budget{
+                    text-align: center;
+                    font-weight: bolder;
+                    padding: 10px;
+                    background: $colorCuaternario;
+                }
+                .ctn-form-presupuesto{
+                    padding: 10px 5px;
+                    form{
+                        display: grid;
+                        gap: 10px 0;
+                        input{
+                            font-size: 120%;
+                            color: white;
+                            width: 100%;
+                            border:none;
+                            outline: none;
+                            background: $colorAzulOscuro;
+                            padding: 5px 10px;
+                            &::placeholder{
+                                color:#cccccc6b;
+                            }
+                        }
+                        //Boton Confirmar del Formulario
+                        .ctn-submit{
+                            margin:0 auto;
+                            button{
+                                @include btnButton($colorSegundario);
+                                @include sombraBox();
+                                font-weight: bolder;
+                                font-size: 110%;
+                            }
+                        }
+                    }
+                }
+                .ctn-title-resultado{
+                    margin: 5px;
+                    p{
+                        padding: 10px;
+                        background: #efefef59;
+                        border-radius: 5px;
+                    }
+                }
+                .ctn-resultado{
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    justify-items: center;
+                    align-items: center;
+                    margin: 10px 0;
+                    .ctn-gastado{
+                        display: flex;
+                        align-items: center;
+                        gap: 0 10px;
+                        background: red;
+                        padding: 10px;
+                        border-radius: 10px;
+                        @include sombraBox();
+                    }
+                    .ctn-sobrante{
+                        display: flex;
+                        align-items: center;
+                        gap: 0 10px;
+                        background: rgb(255, 196, 0);
+                        padding: 10px;
+                        border-radius: 10px;
+                        @include sombraBox();
+                    }
+                    .ctn-total{
+                        display: flex;
+                        align-items: center;
+                        gap: 0 10px;                        
+                        background: rgb(36, 230, 2);
+                        padding: 10px;
+                        border-radius: 10px;
+                        @include sombraBox();
+                    }
+                    .icon{
+                        font-size: 200%;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .message{
+            position: absolute;
+            top: 1vh;
+            width: 70vw;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            color: white;
+        }
+        .message.correcto{
+            background: rgb(36, 230, 2);
+            padding: 10px;
+            @include sombraBox();
+        }
+        .message.incorrecto{
+            background: rgb(255, 0, 0);
+            padding: 10px;
+            @include sombraBox();
+        }
+    }
+}
+//Responsive Page
+@media (max-width: 1366px){
+    //ASIDE
+    .windowAside{
+        width: 30vw;
+        .ctn-btn-close-window{
+            top: 0.9vh;
+            left: 31vw;
+        }
+    }
+    .windowAside.active{
+        left: -30vw;
+    }
+}
+@media (max-width: 1080px){
+    //ASIDE
+    .windowAside{
+        width: 40vw;
+        .ctn-btn-close-window{
+            top: 0.9vh;
+            left: 41vw;
+        }
+    }
+    .windowAside.active{
+        left: -40vw;
+    }
+}
+@media (max-width: 768px){
+    //ASIDE
+    .windowAside{
+        width: 60vw;
+        .ctn-btn-close-window{
+            top: 0.9vh;
+            left: 61vw;
+        }
+    }
+    .windowAside.active{
+        left: -60vw;
+    }
+}
+@media (max-width: 414px){
+    //ASIDE
+    .windowAside{
+        width: 85vw;
+        .ctn-btn-close-window{
+            top: 0.9vh;
+            left: 86vw;
+        }
+    }
+    .windowAside.active{
+        left: -85vw;
+    }
+}
