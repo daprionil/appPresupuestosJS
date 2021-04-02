@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 html {
-  font-family: 'Montserrat',sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 * {
@@ -10,8 +10,9 @@ html {
           box-sizing: border-box;
 }
 
-* body {
-  background: #EFEFEF;
+body {
+  overflow-y: scroll;
+  background: #efefef;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,41 +23,55 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  justify-items: center;
 }
 
-* body aside {
+body aside {
   position: fixed;
   width: 20vw;
   top: 0;
   left: 0;
   background: #cccccc;
   height: 100%;
-  gap: 20px 0;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 
-* body aside .title-gastos {
+body aside .title-gastos {
   padding: 15px;
   text-align: center;
   background: #e6e6e6;
 }
 
-* body aside .gastos {
+body aside .box-scroll {
+  background: #a8a8a8;
+  padding: 1px;
+}
+
+body aside .box-scroll .scroll-bar {
+  width: 0%;
+  height: 10px;
+  background: #ff1e00;
+  border-radius: 0 5px 5px 0;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+}
+
+body aside .gastos {
+  height: 91.5%;
+  overflow-y: scroll;
   padding: 15px;
 }
 
-* body aside .gastos .ctn-gasto {
+body aside .gastos .ctn-gasto {
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
-  background: #EFEFEF;
+  background: #efefef;
 }
 
-* body aside .gastos .ctn-gasto .ctn-title-spending {
+body aside .gastos .ctn-gasto .ctn-title-spending {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,23 +81,23 @@ html {
   padding: 5px;
 }
 
-* body aside .gastos .ctn-gasto .ctn-title-spending p {
+body aside .gastos .ctn-gasto .ctn-title-spending p {
   font-weight: bolder;
 }
 
-* body aside .gastos .ctn-gasto .ctn-title-spending p:nth-child(2) {
+body aside .gastos .ctn-gasto .ctn-title-spending p:nth-child(2) {
   background: red;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending {
+body aside .gastos .ctn-gasto .ctn-description-spending {
   padding: 5px;
   background: #cccccc;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .head-spending {
+body aside .gastos .ctn-gasto .ctn-description-spending .head-spending {
   border-radius: 5px;
   background: #008cff;
   display: -ms-grid;
@@ -93,7 +108,7 @@ html {
   gap: 0 5px;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .head-spending p {
+body aside .gastos .ctn-gasto .ctn-description-spending .head-spending p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,101 +118,122 @@ html {
           flex-direction: column;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .head-spending p span {
+body aside .gastos .ctn-gasto .ctn-description-spending .head-spending p span {
   padding: 5px;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 5px;
   margin-right: 5px;
   font-weight: bolder;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .description-spending {
+body aside .gastos .ctn-gasto .ctn-description-spending .description-spending {
   padding: 5px;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .description-spending p {
+body aside .gastos .ctn-gasto .ctn-description-spending .description-spending p {
   padding: 2px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.349);
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .result-spending {
+body aside .gastos .ctn-gasto .ctn-description-spending .result-spending {
   padding: 5px 0;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 5px;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .result-spending p {
+body aside .gastos .ctn-gasto .ctn-description-spending .result-spending p {
   padding: 2px 5px;
 }
 
-* body aside .gastos .ctn-gasto .ctn-description-spending .result-spending p span {
+body aside .gastos .ctn-gasto .ctn-description-spending .result-spending p span {
   border-radius: 5px;
   background: #008cff;
   padding: 2px 10px;
 }
 
-* body aside .ctn-btn-close-window {
+body aside .gastos .ctn-gasto:last-child {
+  border: 1px solid #0051ff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 81, 255, 0.8);
+          box-shadow: 0 0 4px rgba(0, 81, 255, 0.8);
+}
+
+body aside .gastos::-webkit-scrollbar {
+  width: 8px;
+}
+
+body aside .gastos::-webkit-scrollbar-track {
+  background: #efefef;
+}
+
+body aside .gastos::-webkit-scrollbar-thumb {
+  background: rgba(134, 134, 134, 0.493);
+  border-radius: 5px;
+}
+
+body aside .ctn-btn-close-window {
   position: absolute;
   top: 1vh;
   left: 20.5vw;
 }
 
-* body aside .ctn-btn-close-window button {
+body aside .ctn-btn-close-window button {
   outline: none;
   border: none;
   padding: 11px;
   cursor: pointer;
   background: #008cff;
   border-radius: 5px;
-  font-family: 'Montserrat',sans-serif;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  font-family: "Montserrat", sans-serif;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-* body aside .ctn-btn-close-window button:hover {
+body aside .ctn-btn-close-window button:hover {
   background: #0079dd;
 }
 
-* body aside .ctn-btn-close-window button .icon {
+body aside .ctn-btn-close-window button .icon {
   color: white;
   font-size: 150%;
 }
 
-* body aside.active {
+body aside.active {
   left: -20vw;
 }
 
-* body .container {
+body .container {
   margin: 5px;
   width: 100%;
   max-width: 500px;
 }
 
-* body .container .ctn-budget {
+body .container .ctn-budget {
   width: 100%;
   border-radius: 5px;
   background: #008cff;
   overflow: hidden;
 }
 
-* body .container .ctn-budget .ctn-title-budget {
+body .container .ctn-budget .ctn-title-budget {
   text-align: center;
   font-weight: bolder;
   padding: 10px;
   background: #cccccc;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto {
+body .container .ctn-budget .ctn-form-presupuesto {
   padding: 10px 5px;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form {
+body .container .ctn-budget .ctn-form-presupuesto form {
   display: -ms-grid;
   display: grid;
   gap: 10px 0;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form input {
+body .container .ctn-budget .ctn-form-presupuesto form input {
   font-size: 120%;
   color: white;
   width: 100%;
@@ -207,51 +243,51 @@ html {
   padding: 5px 10px;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form input::-webkit-input-placeholder {
+body .container .ctn-budget .ctn-form-presupuesto form input::-webkit-input-placeholder {
   color: #cccccc6b;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form input:-ms-input-placeholder {
+body .container .ctn-budget .ctn-form-presupuesto form input:-ms-input-placeholder {
   color: #cccccc6b;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form input::-ms-input-placeholder {
+body .container .ctn-budget .ctn-form-presupuesto form input::-ms-input-placeholder {
   color: #cccccc6b;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form input::placeholder {
+body .container .ctn-budget .ctn-form-presupuesto form input::placeholder {
   color: #cccccc6b;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form .ctn-submit {
+body .container .ctn-budget .ctn-form-presupuesto form .ctn-submit {
   margin: 0 auto;
 }
 
-* body .container .ctn-budget .ctn-form-presupuesto form .ctn-submit button {
+body .container .ctn-budget .ctn-form-presupuesto form .ctn-submit button {
   outline: none;
   border: none;
   padding: 11px;
   cursor: pointer;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 5px;
-  font-family: 'Montserrat',sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
   font-weight: bolder;
   font-size: 110%;
 }
 
-* body .container .ctn-budget .ctn-title-resultado {
+body .container .ctn-budget .ctn-title-resultado {
   margin: 5px;
 }
 
-* body .container .ctn-budget .ctn-title-resultado p {
+body .container .ctn-budget .ctn-title-resultado p {
   padding: 10px;
   background: #efefef59;
   border-radius: 5px;
 }
 
-* body .container .ctn-budget .ctn-resultado {
+body .container .ctn-budget .ctn-resultado {
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -264,7 +300,7 @@ html {
   margin: 10px 0;
 }
 
-* body .container .ctn-budget .ctn-resultado .boxFlex {
+body .container .ctn-budget .ctn-resultado .boxFlex {
   width: 90%;
   display: -ms-grid;
   display: grid;
@@ -280,31 +316,31 @@ html {
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 
-* body .container .ctn-budget .ctn-resultado .boxFlex p {
+body .container .ctn-budget .ctn-resultado .boxFlex p {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: title;
 }
 
-* body .container .ctn-budget .ctn-resultado .ctn-gastado {
+body .container .ctn-budget .ctn-resultado .ctn-gastado {
   background: red;
 }
 
-* body .container .ctn-budget .ctn-resultado .ctn-sobrante {
+body .container .ctn-budget .ctn-resultado .ctn-sobrante {
   background: #ffc400;
 }
 
-* body .container .ctn-budget .ctn-resultado .ctn-total {
+body .container .ctn-budget .ctn-resultado .ctn-total {
   background: #24e602;
 }
 
-* body .container .ctn-budget .ctn-resultado .icon {
+body .container .ctn-budget .ctn-resultado .icon {
   font-size: 200%;
   color: white;
 }
 
-* body .message {
+body .message {
   z-index: 1;
   position: absolute;
   top: 1vh;
@@ -315,14 +351,14 @@ html {
   color: white;
 }
 
-* body .message.correcto {
+body .message.correcto {
   background: #24e602;
   padding: 10px;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 
-* body .message.incorrecto {
+body .message.incorrecto {
   background: red;
   padding: 10px;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);

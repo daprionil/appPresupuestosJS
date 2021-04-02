@@ -13,6 +13,7 @@ class UI{
         btnWindowSpending.addEventListener('click',openCloseWindowSpending);
         formulario.addEventListener('submit',agregarGasto);
         boxGastos = JSON.parse(localStorage.getItem('gastos')) || [];
+        scrollBarSpends();
     };
     message(msgtext,clase){
         const message = document.createElement('div');
@@ -164,7 +165,6 @@ function openCloseWindowSpending(e){
     }
     windowSpending.classList.add('active');
 };
-
 function setBoxGastos (boxGastos){
     localStorage.setItem('gastos',JSON.stringify(boxGastos));
     boxGastos = JSON.parse(localStorage.getItem('gastos'));
@@ -177,4 +177,14 @@ function generateUUID() {
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+};
+function scrollBarSpends(){
+    const boxSpends = document.querySelector('#gastosTotales');
+    boxSpends.addEventListener('scroll',()=>{
+        let top = boxSpends.scrollTop;
+        let h = boxSpends.scrollHeight - boxSpends.clientHeight;
+
+        let porcentaje = (top/h)*100;
+        document.querySelector('.scroll-bar').style.width = `${porcentaje}%`;
+    });
 };

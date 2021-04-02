@@ -1,302 +1,329 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 //Variables
-$colorSegundario:#EFEFEF;
-$colorCuaternario:#cccccc;
-$colorAzulClaro:#008cff;
-$colorAzulOscuro:#0079dd;
+$colorSegundario: #efefef;
+$colorCuaternario: #cccccc;
+$colorAzulClaro: #008cff;
+$colorAzulOscuro: #0079dd;
 //Mixins
-@mixin sombraBox{
-    box-shadow:  0 0 4px rgba(0, 0, 0, 0.24);
+@mixin sombraBox {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
-@mixin btnButton($colorBg){
+@mixin btnButton($colorBg) {
     outline: none;
     border: none;
     padding: 11px;
     cursor: pointer;
     background: $colorBg;
     border-radius: 5px;
-    font-family: 'Montserrat',sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 //Global Class
-html{
-    font-family: 'Montserrat',sans-serif;
+html {
+    font-family: "Montserrat", sans-serif;
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
-    box-sizing:border-box;
-    body{
-        background: $colorSegundario;
-        display: flex;
-        height: 100vh;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-        aside{
-            position: fixed;
-            width: 20vw;
-            top: 0;
-            left: 0;
-            background: $colorCuaternario;
-            height: 100%;
-            gap: 20px 0;
-            transition: all .3s;
-            @include sombraBox();
-            .title-gastos{
-                padding: 15px;
-                text-align: center;
-                background: #e6e6e6;
-            }
-            .gastos{
-                padding: 15px;
-                .ctn-gasto{
-                    margin: 5px;
-                    padding: 5px;
-                    border-radius: 5px;
-                    background: $colorSegundario;
-                    .ctn-title-spending{
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 5px;
-                        p{
-                            font-weight: bolder;
-                            &:nth-child(2){
-                                background: red;
-                                padding: 5px 10px;
-                                border-radius: 5px;
-                                cursor: pointer;
-                            }
-                        }
-                    }
-                    .ctn-description-spending{
-                        padding: 5px;
-                        background: $colorCuaternario;
-                        .head-spending{
-                            border-radius: 5px;
-                            background: $colorAzulClaro;
-                            display: grid;
-                            grid-template-columns:50% 50%;
-                            padding: 5px;
-                            gap: 0 5px;
-                            p{
-                                display: flex;
-                                flex-direction: column;
-
-                                span{
-                                    padding: 5px;
-                                    background: $colorSegundario;
-                                    border-radius: 5px;
-                                    margin-right:5px;
-                                    font-weight: bolder;
-                                }
-                            }
-                        }
-                        .description-spending{
-                            padding: 5px;
-                            p{
-                                padding: 2px 0;
-                                border-bottom: 1px solid rgba(0, 0, 0, 0.349);
-                            }
-                        }
-                        .result-spending{
-                            padding: 5px 0;
-                            background: $colorSegundario;
-                            border-radius: 5px;
-                            p{
-                                padding:2px 5px;
-                                span{
-                                    border-radius: 5px;
-                                    background: $colorAzulClaro;
-                                    padding:2px 10px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .ctn-btn-close-window{
-                position: absolute;
-                top: 1vh;
-                left: 20.5vw;
-                
-                button{
-                    @include btnButton($colorAzulClaro);
-                    transition: all .3s;
-                    &:hover{
-                        background: $colorAzulOscuro;
-                    }
-                    .icon{
-                        color: white;
-                        font-size: 150%;
-                    }
-                }
+    box-sizing: border-box;
+}
+body {
+    overflow-y:scroll;
+    background: $colorSegundario;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    aside {
+        position: fixed;
+        width: 20vw;
+        top: 0;
+        left: 0;
+        background: $colorCuaternario;
+        height: 100%;
+        transition: all 0.3s;
+        @include sombraBox();
+        .title-gastos {
+            padding: 15px;
+            text-align: center;
+            background: #e6e6e6;
+        }
+        .box-scroll {
+            background: #a8a8a8;
+            padding: 1px;
+            .scroll-bar {
+                width: 0%;
+                height: 10px;
+                background: rgb(255, 30, 0);
+                border-radius: 0 5px 5px 0;
+                @include sombraBox();
             }
         }
-        aside.active{
-            left: -20vw;
-        }
-        //CONTAINER FORMULARIO PARA LA APP DE PRESUPUESTOS
-        .container{
-            margin: 5px;
-            width: 100%;
-            max-width: 500px;
-            .ctn-budget{
-                width: 100%;
+        .gastos {
+            height: 91.5%;
+            overflow-y: scroll;
+            padding: 15px;
+            .ctn-gasto {
+                margin: 5px;
+                padding: 5px;
                 border-radius: 5px;
-                background: $colorAzulClaro;
-                overflow: hidden;
-                .ctn-title-budget{
-                    text-align: center;
-                    font-weight: bolder;
-                    padding: 10px;
-                    background: $colorCuaternario;
-                }
-                .ctn-form-presupuesto{
-                    padding: 10px 5px;
-                    form{
-                        display: grid;
-                        gap: 10px 0;
-                        input{
-                            font-size: 120%;
-                            color: white;
-                            width: 100%;
-                            border:none;
-                            outline: none;
-                            background: $colorAzulOscuro;
+                background: $colorSegundario;
+                .ctn-title-spending {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 5px;
+                    p {
+                        font-weight: bolder;
+                        &:nth-child(2) {
+                            background: red;
                             padding: 5px 10px;
-                            &::placeholder{
-                                color:#cccccc6b;
-                            }
-                        }
-                        //Boton Confirmar del Formulario
-                        .ctn-submit{
-                            margin:0 auto;
-                            button{
-                                @include btnButton($colorSegundario);
-                                @include sombraBox();
-                                font-weight: bolder;
-                                font-size: 110%;
-                            }
+                            border-radius: 5px;
+                            cursor: pointer;
                         }
                     }
                 }
-                .ctn-title-resultado{
-                    margin: 5px;
-                    p{
-                        padding: 10px;
-                        background: #efefef59;
+                .ctn-description-spending {
+                    padding: 5px;
+                    background: $colorCuaternario;
+                    .head-spending {
                         border-radius: 5px;
-                    }
-                }
-                .ctn-resultado{
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(3,1fr);
-                    justify-items: center;
-                    align-items: center;
-                    margin: 10px 0;
-                    .boxFlex{
-                        width: 90%;
+                        background: $colorAzulClaro;
                         display: grid;
-                        grid-template-areas: "title title";
-                        justify-items: center;
-                        align-items: center;
-                        gap:5px;
-                        padding: 7px;
-                        border-radius: 7px;
-                        @include sombraBox();
-                        p{
-                            grid-area: title;
+                        grid-template-columns: 50% 50%;
+                        padding: 5px;
+                        gap: 0 5px;
+                        p {
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                padding: 5px;
+                                background: $colorSegundario;
+                                border-radius: 5px;
+                                margin-right: 5px;
+                                font-weight: bolder;
+                            }
                         }
                     }
-                    .ctn-gastado{
-                        background: red;
+                    .description-spending {
+                        padding: 5px;
+                        p {
+                            padding: 2px 0;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+                        }
                     }
-                    .ctn-sobrante{
-                        background: rgb(255, 196, 0);
-                    }
-                    .ctn-total{                     
-                        background: rgb(36, 230, 2);
-                    }
-                    .icon{
-                        font-size: 200%;
-                        color: white;
+                    .result-spending {
+                        padding: 5px 0;
+                        background: $colorSegundario;
+                        border-radius: 5px;
+                        p {
+                            padding: 2px 5px;
+                            span {
+                                border-radius: 5px;
+                                background: $colorAzulClaro;
+                                padding: 2px 10px;
+                            }
+                        }
                     }
                 }
             }
+            .ctn-gasto:last-child {
+                border: 1px solid rgb(0, 81, 255);
+                box-shadow: 0 0 4px rgba(0, 81, 255,0.8);
+            }
+            &::-webkit-scrollbar{
+                width: 8px;
+            }
+            &::-webkit-scrollbar-track{
+                background: #efefef;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: rgba(134, 134, 134, 0.493);
+                border-radius: 5px;
+            }
         }
-        .message{
-            z-index: 1;
+        .ctn-btn-close-window {
             position: absolute;
             top: 1vh;
-            width: 70vw;
-            text-align: center;
-            margin: 0 auto;
-            border-radius: 10px;
-            color: white;
+            left: 20.5vw;
+            button {
+                @include btnButton($colorAzulClaro);
+                @include sombraBox();
+                transition: all 0.3s;
+                &:hover {
+                    background: $colorAzulOscuro;
+                }
+                .icon {
+                    color: white;
+                    font-size: 150%;
+                }
+            }
         }
-        .message.correcto{
-            background: rgb(36, 230, 2);
-            padding: 10px;
-            @include sombraBox();
+    }
+    aside.active {
+        left: -20vw;
+    }
+    //CONTAINER FORMULARIO PARA LA APP DE PRESUPUESTOS
+    .container {
+        margin: 5px;
+        width: 100%;
+        max-width: 500px;
+        .ctn-budget {
+            width: 100%;
+            border-radius: 5px;
+            background: $colorAzulClaro;
+            overflow: hidden;
+            .ctn-title-budget {
+                text-align: center;
+                font-weight: bolder;
+                padding: 10px;
+                background: $colorCuaternario;
+            }
+            .ctn-form-presupuesto {
+                padding: 10px 5px;
+                form {
+                    display: grid;
+                    gap: 10px 0;
+                    input {
+                        font-size: 120%;
+                        color: white;
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        background: $colorAzulOscuro;
+                        padding: 5px 10px;
+                        &::placeholder {
+                            color: #cccccc6b;
+                        }
+                    }
+                    //Boton Confirmar del Formulario
+                    .ctn-submit {
+                        margin: 0 auto;
+                        button {
+                            @include btnButton($colorSegundario);
+                            @include sombraBox();
+                            font-weight: bolder;
+                            font-size: 110%;
+                        }
+                    }
+                }
+            }
+            .ctn-title-resultado {
+                margin: 5px;
+                p {
+                    padding: 10px;
+                    background: #efefef59;
+                    border-radius: 5px;
+                }
+            }
+            .ctn-resultado {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+                align-items: center;
+                margin: 10px 0;
+                .boxFlex {
+                    width: 90%;
+                    display: grid;
+                    grid-template-areas: "title title";
+                    justify-items: center;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 7px;
+                    border-radius: 7px;
+                    @include sombraBox();
+                    p {
+                        grid-area: title;
+                    }
+                }
+                .ctn-gastado {
+                    background: red;
+                }
+                .ctn-sobrante {
+                    background: rgb(255, 196, 0);
+                }
+                .ctn-total {
+                    background: rgb(36, 230, 2);
+                }
+                .icon {
+                    font-size: 200%;
+                    color: white;
+                }
+            }
         }
-        .message.incorrecto{
-            background: rgb(255, 0, 0);
-            padding: 10px;
-            @include sombraBox();
-        }
+    }
+    .message {
+        z-index: 1;
+        position: absolute;
+        top: 1vh;
+        width: 70vw;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 10px;
+        color: white;
+    }
+    .message.correcto {
+        background: rgb(36, 230, 2);
+        padding: 10px;
+        @include sombraBox();
+    }
+    .message.incorrecto {
+        background: rgb(255, 0, 0);
+        padding: 10px;
+        @include sombraBox();
     }
 }
 //Responsive Page
-@media (max-width: 1366px){
+@media (max-width: 1366px) {
     //ASIDE
-    .windowAside{
+    .windowAside {
         width: 30vw;
-        .ctn-btn-close-window{
+        .ctn-btn-close-window {
             top: 0.9vh;
             left: 31vw;
         }
     }
-    .windowAside.active{
+    .windowAside.active {
         left: -30vw;
     }
 }
-@media (max-width: 1080px){
+@media (max-width: 1080px) {
     //ASIDE
-    .windowAside{
+    .windowAside {
         width: 40vw;
-        .ctn-btn-close-window{
+        .ctn-btn-close-window {
             top: 0.9vh;
             left: 41vw;
         }
     }
-    .windowAside.active{
+    .windowAside.active {
         left: -40vw;
     }
 }
-@media (max-width: 768px){
+@media (max-width: 768px) {
     //ASIDE
-    .windowAside{
+    .windowAside {
         width: 60vw;
-        .ctn-btn-close-window{
+        .ctn-btn-close-window {
             top: 0.9vh;
             left: 61vw;
         }
     }
-    .windowAside.active{
+    .windowAside.active {
         left: -60vw;
     }
 }
-@media (max-width: 414px){
+@media (max-width: 414px) {
     //ASIDE
-    .windowAside{
+    .windowAside {
         width: 85vw;
-        .ctn-btn-close-window{
+        .ctn-btn-close-window {
             top: 0.9vh;
             left: 86vw;
         }
     }
-    .windowAside.active{
+    .windowAside.active {
         left: -85vw;
     }
 }
